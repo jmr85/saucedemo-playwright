@@ -2,10 +2,10 @@ import type { Locator, Page } from '@playwright/test';
 
 export class LoginPage {
 
-    readonly page: Page;
-    readonly txtUserName: Locator;
-    readonly txtPassword: Locator;
-    readonly btnLogin: Locator;
+    private readonly page: Page;
+    private readonly txtUserName: Locator;
+    private readonly txtPassword: Locator;
+    private readonly btnLogin: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -14,11 +14,11 @@ export class LoginPage {
         this.btnLogin = page.locator('[data-test="login-button"]')
     }
 
-    async doLogin() {
+    async doLogin(userName: string = 'standard_user', password: string = 'secret_sauce') {
         await this.txtUserName.click();
-        await this.txtUserName.fill('standard_user');
+        await this.txtUserName.fill(userName);
         await this.txtUserName.press('Tab');
-        await this.txtPassword.fill('secret_sauce');
+        await this.txtPassword.fill(password);
         await this.btnLogin.click();
     }  
 }
