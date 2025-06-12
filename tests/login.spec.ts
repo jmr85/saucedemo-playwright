@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
-test('login', async ({ page }) => {
+test('Login exitoso en SauceDemo', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await test.step('Dado que navego al Inicio de SauceDemo', async () => {
