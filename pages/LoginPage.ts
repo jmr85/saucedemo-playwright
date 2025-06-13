@@ -14,7 +14,7 @@ export class LoginPage {
         this.btnLogin = page.locator('[data-test="login-button"]')
     }
 
-    async doLogin(userName: string = 'standard_user', password: string = 'secret_sauce') {
+    async doLogin(userName: string, password: string) {
         await this.txtUserName.click();
         await this.txtUserName.fill(userName);
         await this.txtUserName.press('Tab');

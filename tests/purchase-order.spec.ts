@@ -5,6 +5,9 @@ import { CartPage } from '../pages/CartPage';
 import { CheckoutStepOnePage } from '../pages/CheckoutStepOnePage';
 import { CheckoutStepTwoPage } from '../pages/CheckoutStepTwoPage';
 import { CheckoutCompletePage } from '../pages/CheckoutCompletePage';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 test.describe('Flujo de orden de compra', () => {
     
@@ -16,7 +19,7 @@ test.describe('Flujo de orden de compra', () => {
         })
 
         await test.step('login del sitio SauceDemo', async () => {
-            await loginPage.doLogin();
+            await loginPage.doLogin(process.env.USER_NAME!, process.env.PASSWORD!);
             await expect(page).toHaveURL(/.*inventory/);
         })
 
