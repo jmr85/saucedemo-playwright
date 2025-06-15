@@ -9,5 +9,7 @@ node_modules/
 # environment variables
 .env
 .env.production
+.env.dev
+.env.qa
 
-playwright/.auth
+/playwright/.auth/
